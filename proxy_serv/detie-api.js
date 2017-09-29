@@ -23,7 +23,7 @@ const signature_of = (api_key, secret, params) => {
   const keys = Object.keys(hashdata)
   keys.sort();
 
-  keys.forEach(k => console.log(`${k}=${hashdata[k]}`))
+  //keys.forEach(k => console.log(`${k}=${hashdata[k]}`))
   keys.forEach(k => hasher.update(`${k}=${hashdata[k]}`))
   hasher.update(secret)
 
@@ -100,6 +100,7 @@ async function sendGet(params) {
       return res;
     } catch (e) {
       if (e instanceof ErrorAgain) {
+        console.log('retrying...')
         await new Promise(r => setTimeout(r, 1000));
         continue;
       }
