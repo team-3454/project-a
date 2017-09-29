@@ -41,19 +41,24 @@ export default {
   name: 'BidAskTable',
   data () {
     return {
-      // TO DO: 使用db資料
+      // TO DO: 使用 db 資料
       bids: [97.8, 97.7, 97.6, 97.5, 97.2],
       asks: [97.9, 98.3, 98.9, 99.0, 99.4]
     }
   },
   methods: {
-    deal: function (event) {
+    deal: function ($event) {
       // TO DO: 跳出成交頁面
-      alert('Deal!!')
+      var index = this.bids.indexOf(parseFloat(event.target.textContent))
+      if (index === 0) {
+        alert('恭喜您成交!!')
+      } else {
+        alert('貼心提醒: 幫您使用最貴價格' + this.bids[0] + '賣出！')
+      }
     },
     fillPrice: function (event) {
       // TO DO: 自動填入賣價欄位
-      alert('I want to sell my ticket with this price.')
+      alert('我想以價格' + event.target.textContent + '賣出！')
     }
   }
 }
