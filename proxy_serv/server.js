@@ -3,7 +3,7 @@
 const http = require('http');
 const url = require("url");
 
-const detie = require("./detie-api.js");
+const detie = require("./detie-api.js").sendGet;
 
 const hostname = '0.0.0.0';
 const port = 8000;

@@ -85,6 +85,52 @@ const sendGetRequest = (baseUrl, api_key, secret, params) => new Promise((resolv
   req.end();
 });
 
+const sendPostRequest = (baseUrl, api_key, secret, params) => new Promise((resolve, rej) =>{
+  const sign = signature_of(api_key, secret, params);
+  sign["Content-Type"] = "application/json";
+  console.log(sign);
+
+  const receivedData = [];
+
+  const req = https.request({
+      ...urlParse(baseUrl),
+      method: 'POST',
+      headers: sign,
+    },
+    res => {
+      console.log('statusCode:', res.statusCode);
+      const statusCode = res.statusCode
+      res.on('data', data => {
+        receivedData.push(data);
+        //resolve(data.toString('utf-8'));
+      });
+      res.on('end', _ => {
+        const resText = Buffer.concat(receivedData).toString('utf-8');
+        if (statusCode == 423) {
+          rej(new ErrorAgain());
+        }
+        else if (statusCode < 200 || statusCode > 299) {
+          const e = new Error(statusCode);
+          e.statusCode = statusCode;
+          e.message = resText;
+          rej(e);
+        }
+        else {
+          console.log(res.headers)
+          resolve(resText);
+        }
+      });
+    }
+  );
+
+  req.on('error', (e) => {
+    console.error(e);
+    rej(e);
+  });
+  req.write(JSON.stringify(params));
+  req.end();
+});
+
 const api_key = "1fdeae6e7fd44c9e991d21066a828f0c"
 const secret = "4dae4d6a-4874-4d60-8eac-67701520671d"
 
@@ -115,4 +161,50 @@ async function sendGet(params) {
   }
 }
 
-module.exports = sendGet;
+async function sendPost(params) {
+  const res = await sendPostRequest("https://alpha.api.detie.cn/api/v2/online_orders", api_key, secret, {
+    "contact": {
+      "name": "Liping",
+      "email": "lp@163.com",
+      "phone": "10086",
+      "address": "beijing",
+      "postcode": "100100"
+    },
+    "passengers": [
+      {
+        "last_name": "zhang",
+        "first_name": "san",
+        "birthdate": "1986-09-01",
+        "passport": "A123456",
+        "email": "x@a.cn",
+        "phone": "15000367081",
+        "gender": "male"
+      }
+    ],
+    "sections": [
+      "P_1LDC989",
+    ],
+    "seat_reserved": true
+    });
+  const token = JSON.parse(res).async;
+  while (true) {
+    try {
+      const res = await sendGetRequest("https://alpha.api.detie.cn/api/v2/async_results/" + token, api_key, secret, {
+        async_key: token
+      });
+      return res;
+    } catch (e) {
+      if (e instanceof ErrorAgain) {
+        console.log('retrying...')
+        await new Promise(r => setTimeout(r, 1000));
+        continue;
+      }
+      throw e;
+    }
+  }
+}
+
+module.exports = {
+  sendGet,
+  sendPost,
+};
