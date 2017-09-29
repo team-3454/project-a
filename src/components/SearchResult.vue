@@ -31,6 +31,8 @@
 </template>
 
 <script>
+import ticket from '@/service/ticketService'
+
 export default {
   name: 'SearchResult',
   methods: {
@@ -46,138 +48,13 @@ export default {
   },
   data () {
     return {
-      results: [
-        {
-          'id': 'OD_02NY86GJP',
-          'PNR': 'A4DL5N',
-          'railway': {
-            'code': 'DB'
-          },
-          'from': {
-            'code': 'ST_E020P6M4',
-            'name': 'Berlin Hbf (tief)'
-          },
-          'to': {
-            'code': 'ST_EMYR64OX',
-            'name': 'München Hbf'
-          },
-          'departure': '2017-11-08T12:27:00+01:00',
-          'duration': {
-            'hour': 6,
-            'minutes': 11
-          },
-          'created_at': 1509363000,
-          'tickets': [
-            {
-              'id': 'TK_2E6GY7MYZ',
-              'from': {
-                'code': 'ST_E020P6M4',
-                'name': 'Berlin Hbf (tief)'
-              },
-              'to': {
-                'code': 'ST_EMYR64OX',
-                'name': 'München Hbf'
-              },
-              'price': {
-                'currency': 'EUR',
-                'cents': 5980
-              }
-            }
-          ]
-        },
-        {
-          'id': 'OD_02NY86GJP',
-          'PNR': 'A4DL5N',
-          'railway': {
-            'code': 'DB'
-          },
-          'from': {
-            'code': 'ST_LO812W4J',
-            'name': 'Frankfurt(M) Flughafen Fernbf'
-          },
-          'to': {
-            'code': 'ST_EMYR64OX',
-            'name': 'München Hbf'
-          },
-          'departure': '2017-11-09T16:52:00+01:00',
-          'duration': {
-            'hour': 4,
-            'minutes': 9
-          },
-          'created_at': 1509363000,
-          'tickets': [
-            {
-              'id': 'TK_2E6GY7MYZ',
-              'from': {
-                'code': 'ST_LO812W4J',
-                'name': 'Frankfurt(M) Flughafen Fernbf'
-              },
-              'to': {
-                'code': 'ST_EMYR64OX',
-                'name': 'München Hbf'
-              },
-              'price': {
-                'currency': 'EUR',
-                'cents': 2990
-              }
-            }
-          ]
-        },
-        {
-          'id': 'OD_02NY86GJP',
-          'PNR': 'A4DL5N',
-          'railway': {
-            'code': 'DB'
-          },
-          'from': {
-            'code': 'ST_E020P6M4',
-            'name': 'Berlin Hbf (tief)'
-          },
-          'to': {
-            'code': 'ST_EMYR64R3',
-            'name': 'Düsseldorf Hbf'
-          },
-          'departure': '2017-11-11T16:52:00+01:00',
-          'duration': {
-            'hour': 4,
-            'minutes': 14
-          },
-          'created_at': 1509363000,
-          'tickets': [
-            {
-              'id': 'TK_2E6GY7MYZ',
-              'from': {
-                'code': 'ST_E020P6M4',
-                'name': 'Berlin Hbf (tief)'
-              },
-              'to': {
-                'code': 'ST_EMYR64R3',
-                'name': 'Düsseldorf Hbf'
-              },
-              'price': {
-                'currency': 'EUR',
-                'cents': 5980
-              }
-            },
-            {
-              'id': 'TK_2E6GY7MYA',
-              'from': {
-                'code': 'ST_E020P6M4',
-                'name': 'Berlin Hbf (tief)'
-              },
-              'to': {
-                'code': 'ST_EMYR64R3',
-                'name': 'Düsseldorf Hbf'
-              },
-              'price': {
-                'currency': 'EUR',
-                'cents': 5980
-              }
-            }
-          ]
-        }
-      ]
+      results: []
     }
+  },
+  mounted () {
+    ticket.get().then(res => {
+      this.results = res.body
+    })
   }
 }
 </script>
