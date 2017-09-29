@@ -56,18 +56,24 @@ const sendGetRequest = (baseUrl, api_key, secret, params) => new Promise((resolv
     res => {
       //console.log('statusCode:', res.statusCode);
       const statusCode = res.statusCode
-      if (statusCode == 423) {
-        rej(new ErrorAgain());
-      }
-      else if (statusCode != 200) {
-        rej(new Error(statusCode));
-      }
       res.on('data', data => {
         receivedData.push(data);
         //resolve(data.toString('utf-8'));
       });
       res.on('end', _ => {
-        resolve(Buffer.concat(receivedData).toString('utf-8'));
+        const resText = Buffer.concat(receivedData).toString('utf-8');
+        if (statusCode == 423) {
+          rej(new ErrorAgain());
+        }
+        else if (statusCode != 200) {
+          const e = new Error(statusCode);
+          e.statusCode = statusCode;
+          e.message = resText;
+          rej(e);
+        }
+        else {
+          resolve(resText);
+        }
       });
     }
   );
