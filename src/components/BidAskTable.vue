@@ -55,13 +55,13 @@ export default {
         text += '\n貼心提醒: 幫您使用最貴價格' + this.bids[0] + '賣出！'
       }
       if (confirm(text) === true) {
-        alert('恭喜您成交!!')
+        alert('恭喜您以' + event.target.textContent + '成交!!')
       }
     },
     fillPrice: function (event) {
       // TO DO: 自動填入賣價欄位
       if (confirm('是否以價格' + event.target.textContent + '賣出？') === true) {
-        alert('已成功掛單!!')
+        alert('已成功以' + event.target.textContent + '掛單!!')
       }
     }
   }
