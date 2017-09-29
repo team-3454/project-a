@@ -24,7 +24,7 @@
           <div>
               <div class="row">
                 <div class="col-md-2"><h4>Sell price:</h4></div>
-                <div class="col-md-2"><input type="text" class="form-control" :placeholder=info.HighestPrice></div>
+                <div class="col-md-2"><input type="text" class="form-control" :placeholder="info.HighestPrice"></div>
                 <div class="col-md-2"><input type="button" class="btn btn-primary" value="Submit"></div>
               </div>
           </div>
