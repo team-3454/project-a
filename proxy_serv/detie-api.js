@@ -15,7 +15,7 @@ const signature_of = (api_key, secret, params) => {
     .filter(([k, v]) => {
       return v != null &&
         !Array.isArray(v) &&
-        (typeof v) !== 'Object';
+        (typeof v) !== 'object';
     })
     .forEach(([k, v]) => hashdata[k] = v)
 
