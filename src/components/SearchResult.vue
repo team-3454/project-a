@@ -35,9 +35,10 @@ export default {
   name: 'SearchResult',
   methods: {
     want: function (event) {
-      if (confirm('我要徵票？') === true) {
-        // TO DO: 顯示使用者上方輸入的資料
-        alert('已成功以' + event.target.textContent + '掛單!!')
+      var price = prompt('我要徵票!\n\n請輸入期望的價格', '')
+      var expectPrice = parseFloat(price)
+      if (price != null && isNaN(expectPrice) !== true && confirm('我要徵' + expectPrice + '元的票？')) {
+        alert('已成功以' + expectPrice + '掛單!!')
       }
     },
     nextPage: function (event) {
