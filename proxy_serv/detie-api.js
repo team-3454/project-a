@@ -34,6 +34,9 @@ const signature_of = (api_key, secret, params) => {
   };
 };
 
+class ErrorAgain extends Error {
+}
+
 const sendGetRequest = (baseUrl, api_key, secret, params) => new Promise((resolve, rej) =>{
   const sign = signature_of(api_key, secret, params);
   //console.log(sign);
@@ -52,8 +55,12 @@ const sendGetRequest = (baseUrl, api_key, secret, params) => new Promise((resolv
     },
     res => {
       //console.log('statusCode:', res.statusCode);
-      if (res.statusCode != '200') {
-        rej(res.statusCode);
+      const statusCode = res.statusCode
+      if (statusCode == 423) {
+        rej(new ErrorAgain());
+      }
+      else if (statusCode != 200) {
+        rej(new Error(statusCode));
       }
       res.on('data', data => {
         receivedData.push(data);
@@ -94,8 +101,11 @@ module.exports = function (params) {
             });
             return res;
           } catch (e) {
-            await new Promise(r => setTimeout(r, 1000));
-            continue
+            if (e instanceof ErrorAgain) {
+              await new Promise(r => setTimeout(r, 1000));
+              continue;
+            }
+            throw e;
           }
         }
       })
