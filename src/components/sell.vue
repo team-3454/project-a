@@ -1,7 +1,7 @@
 <template>
   <div class="sell">
   <div class="container">
-    <div class="col-md-6"><ticket-info></ticket-info></div>
+    <div class="col-md-6"><ticket-info :info=info></ticket-info></div>
     <div class="col-md-6"><bid-ask-table></bid-ask-table></div>
   </div>
 
@@ -20,7 +20,16 @@ export default {
   },
   data () {
     return {
-      msg: 'selllllll'
+      msg: 'selllllll',
+      info: {
+        RefNumber: 'xxxxxxxxxx',
+        From: 'Paris',
+        To: 'Berlin',
+        Departure: 18000000000,
+        Arrive: 18000000001,
+        BoughtPrice: 500,
+        HighestPrice: 800
+      }
     }
   }
 }
