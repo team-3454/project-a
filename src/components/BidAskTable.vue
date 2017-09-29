@@ -50,15 +50,19 @@ export default {
     deal: function ($event) {
       // TO DO: 跳出成交頁面
       var index = this.bids.indexOf(parseFloat(event.target.textContent))
-      if (index === 0) {
+      var text = '確定要進行此交易？'
+      if (index !== 0) {
+        text += '\n貼心提醒: 幫您使用最貴價格' + this.bids[0] + '賣出！'
+      }
+      if (confirm(text) === true) {
         alert('恭喜您成交!!')
-      } else {
-        alert('貼心提醒: 幫您使用最貴價格' + this.bids[0] + '賣出！')
       }
     },
     fillPrice: function (event) {
       // TO DO: 自動填入賣價欄位
-      alert('我想以價格' + event.target.textContent + '賣出！')
+      if (confirm('是否以價格' + event.target.textContent + '賣出？') === true) {
+        alert('已成功掛單!!')
+      }
     }
   }
 }
