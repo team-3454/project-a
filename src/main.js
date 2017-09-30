@@ -9,9 +9,20 @@ import 'bootstrap'
 
 Vue.config.productionTip = false
 /* eslint-disable no-new */
+
+const data = {
+  currentPath: '/sell'
+}
+
+router.afterEach(route => {
+  console.log(route.path)
+  data.currentPath = route.path
+})
+
 new Vue({
   el: '#app',
   router,
-  template: '<App/>',
-  components: { App }
+  template: '<App :currentPath="currentPath" />',
+  components: { App },
+  data
 })

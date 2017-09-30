@@ -3,18 +3,19 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#buy">Buy</a></li>
-          <li><a href="#sell">Sell</a></li>
+          <li :class="{active: currentPath === '/buy'}"><a href="#/buy">Buy</a></li>
+          <li :class="{active: currentPath === '/sell'}"><a href="#/sell">Sell</a></li>
         </ul>
       </div>
     </nav>
     <router-view></router-view>
-  </div> 
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  props: ['currentPath']
 }
 </script>
 
