@@ -1,17 +1,12 @@
 <template>
   <div id="app">
-
-  <div class="container">
-    <div class="nav nav-pills">
-      <ul class="active">
-        <a data-toggle="pill" href="#buy">Buy</a>
-      </ul>
-      <ul>
-        <a data-toggle="pill" href="#sell">Sell</a>
-      </ul>
-    </div>
-  </div>
-
+    <b-navbar toggleable="md" >
+      <b-navbar-brand href="#">3454</b-navbar-brand>
+      <b-nav is-nav-bar>
+        <b-nav-item href="#buy">Buy</b-nav-item>
+        <b-nav-item href="#sell">Sell</b-nav-item>
+      </b-nav>
+    </b-navbar>
     <router-view></router-view>
   </div> 
   
