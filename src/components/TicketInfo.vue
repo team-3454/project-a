@@ -17,12 +17,6 @@
             <div class="col"><h4>Time: {{info.Arrive}}</h4> </div>
           </div>
         </div>
-        <h4 class="row" Bought price: {{info.BoughtPrice}} </h4> 
-        <div class="container">
-          <div class="col-md-2"><h4>Sell price:</h4></div>
-          <div class="col-md-2"><input type="text" class="form-control" :placeholder="info.HighestPrice"></div>
-          <div class="col-md-2"><input type="button" class="btn btn-primary" value="Submit"></div>
-        </div>
       </div>
   </div>
 </template>

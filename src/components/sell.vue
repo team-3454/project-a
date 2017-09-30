@@ -3,8 +3,16 @@
   <div class="container" v-for="info in infos">
     <div class="col-md-6">
       <ticket-info :info="info" ></ticket-info>
+      <div class="row">
+        <div class="col"><h4>Bought price: {{info.BoughtPrice}}</h4></div>
+      </div>
+      <div class="row">
+          <div class="col-md-4"><h4>Sell price:</h4></div>
+          <div class="col-md-4"><input type="text" class="form-control" :placeholder="info.HighestPrice"></div>
+          <div class="col-md-4"><input type="button" class="btn btn-primary" value="Submit"></div>
+      </div>
     </div>
-    <div class="col-md-6"><bid-ask-table></bid-ask-table></div>
+    <div class="col-md-6"><bid-ask-table></bid-ask-table></div>    
   </div>
   
   </div>
