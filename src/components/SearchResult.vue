@@ -15,7 +15,7 @@
                 <td>{{result.from.name}}</td>
                 <td>{{result.to.name}}</td>
                 <td>{{result.departure}}</td>
-                <td>{{result.tickets[0].price.currency}} {{result.tickets[0].price.cents}}</td>
+                <td>{{result.tickets[0].price.currency}} {{result.tickets[0].price.cents}}<button type="button" class="buy btn btn-warning btn-xs" @click="buy(result)">Buy</button></td>
               </tr>
             </tbody>
           </table>
@@ -37,6 +37,13 @@ export default {
       }
     },
     nextPage: function (event) {
+    },
+    buy: function (item) {
+      if (confirm('你確定要買這筆資料嗎？')) {
+        this.results = this.results.filter(result => {
+          return result !== item
+        })
+      }
     }
   },
   data () {
@@ -66,9 +73,18 @@ export default {
 }
 
 .bottom_control
-{   
+{
   margin: 25px;
   text-align: right;
+}
+
+button.buy {
+  visibility: hidden;
+  float: right;
+}
+
+.search-result-table tr:hover button.buy {
+  visibility: inherit;
 }
 
 </style>
