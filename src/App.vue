@@ -1,16 +1,15 @@
 <template>
   <div id="app">
-    <b-navbar toggleable="md" >
-      <b-navbar-brand href="#">3454</b-navbar-brand>
-      <b-nav is-nav-bar>
-        <b-nav-item href="#buy">Buy</b-nav-item>
-        <b-nav-item href="#sell">Sell</b-nav-item>
-      </b-nav>
-    </b-navbar>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#buy">Buy</a></li>
+          <li><a href="#sell">Sell</a></li>
+        </ul>
+      </div>
+    </nav>
     <router-view></router-view>
   </div> 
-  
-
 </template>
 
 <script>
