@@ -18,8 +18,8 @@
           <div class="col-md-5" v-on:click = "fillPrice(info)"><h4>Ask price: {{info.Ask}}</h4></div>
         </div>
         <div class="row">
-          <div class="col-md-9"><input id="input-price" type="text" class="form-control" v-model="info.CurrentSelectPrice"></div>
-          <div class="col-md-3"><input id="summit-btn" type="button" class="btn btn-primary" v-on:click="onSummitClick(info)" value="Submit"></div>
+          <div class="col-md-9"><input type="text" :disabled="info.Bidded" class="form-control" v-model="info.CurrentSelectPrice"></div>
+          <div class="col-md-3"><input type="button" class="btn btn-primary" v-on:click="onSummitClick(info)" :value="!info.Bidded?'Submit':'Cancel'"></div>
         </div>
       </div>
     </div>
@@ -28,7 +28,6 @@
 
 <script>
 import TicketInfo from './TicketInfo'
-import $ from 'jquery'
 
 var myInfos = [
   {
@@ -102,19 +101,16 @@ export default {
       }, 0)
     },
     onSummitClick: function (ticket) {
-      console.log($('#input-price')[0].value)
-      if ($('#input-price')[0].disabled) {
-        $('#input-price')[0].disabled = false
-        $('#summit-btn')[0].value = 'Summit'
+      console.log(ticket.CurrentSelectPrice)
+      if (ticket.Bidded) {
+        ticket.Bidded = false
         return
       }
-      var userPrice = $('#input-price')[0].value
-      if ($('#input-price')[0].value > ticket.Bid) {
-        if (confirm('是否以價格' + userPrice + '賣出？') === true) {
-          alert('已成功以' + userPrice + '掛單!!')
+      if (ticket.CurrentSelectPrice > ticket.Bid) {
+        if (confirm('是否以價格' + ticket.CurrentSelectPrice + '賣出？') === true) {
+          alert('已成功以' + ticket.CurrentSelectPrice + '掛單!!')
         }
-        $('#input-price')[0].disabled = true
-        $('#summit-btn')[0].value = 'Cancel'
+        ticket.Bidded = true
       } else {
         this.deal(ticket)
       }
