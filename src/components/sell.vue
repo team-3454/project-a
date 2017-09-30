@@ -1,22 +1,21 @@
 <template>
   <div class="sell">
-  <div class="container" v-for="info in infos">
-    <div class="col-md-6">
-      <ticket-info :info="info" ></ticket-info>
-      <div class="row">
-        <div class="col-md-12"><h4>Bought price: {{info.BoughtPrice}}</h4></div>
-      </div>
-      <div class="row">
-        <div class="col-md-5" v-on:click = "deal(info)"><h4>Bid price: {{info.Bid}}</h4></div>
-        <div class="col-md-5" v-on:click = "fillPrice(info)"><h4>Ask price: {{info.Ask}}</h4></div>
-      </div>
-      <div class="row">
-        <div class="col-md-9"><input type="text" class="form-control" v-model="info.CurrentSelectPrice"></div>
-        <div class="col-md-3"><input type="button" class="btn btn-primary" value="Submit"></div>
+    <div class="container" >
+      <div class="col-md-6" v-for="info in infos">
+        <ticket-info :info="info" ></ticket-info>
+        <div class="row">
+          <div class="col-md-6"><h4>Bought price: {{info.BoughtPrice}}</h4></div>
+        </div>
+        <div class="row">
+          <div class="col-md-5" v-on:click = "deal(info)"><h4>Bid price: {{info.Bid}}</h4></div>
+          <div class="col-md-5" v-on:click = "fillPrice(info)"><h4>Ask price: {{info.Ask}}</h4></div>
+        </div>
+        <div class="row">
+          <div class="col-md-9"><input type="text" class="form-control" v-model="info.CurrentSelectPrice"></div>
+          <div class="col-md-3"><input type="button" class="btn btn-primary" value="Submit"></div>
+        </div>
       </div>
     </div>
-  </div>
-  
   </div>
 </template>
 
