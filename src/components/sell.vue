@@ -1,5 +1,12 @@
 <template>
-  <div class="sell">
+  <div class="sell">  
+    <div style="background-image:url('/static/savingmoneyincanada.jpg'); 
+          background-repeat: no-repeat; 
+          background-size: 100%; 
+          background-position:center;
+          height: 300px; padding: 50px;">
+      <h2 style="color: #FFFFFF; text-align: center">Sell</h2>
+    </div>
     <div class="container" >
       <div class="col-md-6" v-for="info in infos">
         <ticket-info :info="info" ></ticket-info>

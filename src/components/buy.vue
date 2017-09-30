@@ -3,7 +3,7 @@
     <div style="background-image:url('/static/train_crop.png'); 
     background-repeat: no-repeat; 
     background-size: 100%; 
-    background-position:center
+    background-position:center;
     height: 300px; padding: 50px;">
       <h2 style="color: #FFFFFF">Buy</h2>
       <ticket-selector></ticket-selector>
