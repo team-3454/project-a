@@ -6,17 +6,11 @@
       <div class="row">
         <div class="col"><h4>Bought price: {{info.BoughtPrice}}</h4></div>
       </div>
-        <b-input-group>
-          <b-input-group-addon>
-            Sell price:
-          </b-input-group-addon>
-
-          <b-form-input></b-form-input>
-
-          <b-input-group-button slot="right">
-            <b-btn variant="info">Submit</b-btn>
-          </b-input-group-button>
-        </b-input-group>
+      <div class="row">
+          <div class="col-md-4"><h4>Sell price:</h4></div>
+          <div class="col-md-4"><input type="text" class="form-control" :placeholder="info.HighestPrice"></div>
+          <div class="col-md-4"><input type="button" class="btn btn-primary" value="Submit"></div>
+      </div>
     </div>
     <div class="col-md-6"><bid-ask-table></bid-ask-table></div>    
   </div>
