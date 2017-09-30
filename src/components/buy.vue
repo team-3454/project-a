@@ -6,10 +6,7 @@
     background-position:center
     height: 300px; padding: 50px;">
       <h2>Buy</h2>
-      <ticket-selector></ticket-selector>       
-      <div class="bottom_control">
-        <button type="button" style="width:100px;" class="btn btn-danger btn-lg" v-on:click="want">Want</button>
-      </div>
+      <ticket-selector></ticket-selector>
     </div>
     <div style="padding: 50px;">
       <search-result></search-result>

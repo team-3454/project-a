@@ -3,14 +3,19 @@
     <div class="container" > 
         <div class="row">
           <div class="col-md-2">
-            <h4>From<input type="text" class="form-control" style="height: 40px;" value="Berlin Hbf (tief)"></h4>
+            <h4>From<br/><input type="text" class="form-control" style="height: 40px;" value="Berlin Hbf (tief)"></h4>
           </div>
           <div class="col-md-2">
-            <h4>To<input type="text" class="form-control" style="height: 40px;" value="München Hbf"></h4>
+            <h4>To<br/><input type="text" class="form-control" style="height: 40px;" value="München Hbf"></h4>
           </div>
-          <div class="col-md-2"><h4>Date<input type='date' style="height: 40px;" value="2017-09-30"></h4> </div>
-          <div class="col-md-2"><h4>Time<input type='time' style="height: 40px;" v-model="time"></h4> </div>
-          <div class="col-sm-2"><h4>Passengers<input type='number' style="height: 40px;" value="1"></h4> </div>
+          <div class="col-md-2"><h4>Date<br/><input type='date' style="height: 40px;" value="2017-09-30"></h4> </div>
+          <div class="col-md-2"><h4>Time<br/><input type='time' style="height: 40px;" v-model="time"></h4> </div>
+          <div class="col-md-2"><h4>Price<br/><input type='number' style="height: 40px;"></h4> </div>
+          <div class="col-md-2">
+            <h4><br/>
+            <button type="button" style="width:100px;" class="btn btn-danger btn-lg" v-on:click="want">Want</button>
+            </h4>
+          </div>
         </div>
       </div>
   </div>
