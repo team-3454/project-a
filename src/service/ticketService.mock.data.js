@@ -19,6 +19,15 @@ let ticket = [
       'minutes': 11
     },
     'created_at': 1509363000,
+    'passengers': {
+      'id': 'PN_69NKJLY13',
+      'first_name': 'san',
+      'last_name': 'zhang',
+      'birthdate': '1986-09-01',
+      'email': 'x@a.cn',
+      'phone': '15000367081',
+      'gender': 'male'
+    },
     'tickets': [
       {
         'id': 'TK_2E6GYDMYZ',
@@ -57,6 +66,15 @@ let ticket = [
       'minutes': 9
     },
     'created_at': 1509363000,
+    'passengers': {
+      'id': 'PN_69NKJLY14',
+      'first_name': 'jie',
+      'last_name': 'wang',
+      'birthdate': '1983-01-01',
+      'email': 'y@a.cn',
+      'phone': '15000367082',
+      'gender': 'male'
+    },
     'tickets': [
       {
         'id': 'TK_2E6GY4MYZ',
@@ -95,6 +113,15 @@ let ticket = [
       'minutes': 14
     },
     'created_at': 1509363000,
+    'passengers': {
+      'id': 'PN_69NKJLY13',
+      'first_name': 'san',
+      'last_name': 'zhang',
+      'birthdate': '1986-09-01',
+      'email': 'x@a.cn',
+      'phone': '15000367081',
+      'gender': 'male'
+    },
     'tickets': [
       {
         'id': 'TK_2E6GYDMYZ',
@@ -148,6 +175,15 @@ let ticket = [
       'minutes': 32
     },
     'created_at': 1509363000,
+    'passengers': {
+      'id': 'PN_69NKJLY14',
+      'first_name': 'jie',
+      'last_name': 'wang',
+      'birthdate': '1983-01-01',
+      'email': 'y@a.cn',
+      'phone': '15000367082',
+      'gender': 'male'
+    },
     'tickets': [
       {
         'id': 'TK_2E6GS7MYZ',
@@ -231,6 +267,15 @@ let ticket = [
       'minutes': 21
     },
     'created_at': 1509363000,
+    'passengers': {
+      'id': 'PN_69NKJLY13',
+      'first_name': 'san',
+      'last_name': 'zhang',
+      'birthdate': '1986-09-01',
+      'email': 'x@a.cn',
+      'phone': '15000367081',
+      'gender': 'male'
+    },
     'tickets': [
       {
         'id': 'TK_1E6GY7MYC',
@@ -284,6 +329,15 @@ let ticket = [
       'minutes': 28
     },
     'created_at': 1509363000,
+    'passengers': {
+      'id': 'PN_69NKJLY14',
+      'first_name': 'jie',
+      'last_name': 'wang',
+      'birthdate': '1983-01-01',
+      'email': 'y@a.cn',
+      'phone': '15000367082',
+      'gender': 'male'
+    },
     'tickets': [
       {
         'id': 'TK_1E6WY7MYZ',
