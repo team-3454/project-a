@@ -3,17 +3,17 @@
     <div class="container" > 
         <div class="row">
           <div class="col-md-2">
-            <h4>From<br/><input type="text" class="form-control" style="height: 40px;" value="Berlin Hbf (tief)"></h4>
+            <h4 style="color: #0a0a0a">From<br/><input type="text" class="form-control" style="height: 40px; color: #cacaca" value="Berlin Hbf (tief)"></h4>
           </div>
           <div class="col-md-2">
-            <h4>To<br/><input type="text" class="form-control" style="height: 40px;" value="München Hbf"></h4>
+            <h4 style="color: #0a0a0a">To<br/><input type="text" class="form-control" style="height: 40px; color: #cacaca" value="München Hbf"></h4>
           </div>
-          <div class="col-md-2"><h4>Date<br/><input type='date' style="height: 40px;" value="2017-09-30"></h4> </div>
-          <div class="col-md-2"><h4>Time<br/><input type='time' style="height: 40px;" v-model="time"></h4> </div>
-          <div class="col-md-2"><h4>Price<br/><input type='number' style="height: 40px;"></h4> </div>
+          <div class="col-md-2"><h4 style="color: #0a0a0a">Date<br/><input type='date' style="height: 40px; color: #cacaca; " value="2017-09-30"></h4></div>
+          <div class="col-md-2"><h4 style="color: #0a0a0a">Time<br/><input type='time' style="height: 40px; color: #cacaca" v-model="time"></h4></div>
+          <div class="col-md-2"><h4 style="color: #0a0a0a">Price<br/><input type='number' style="height: 40px; color: #cacaca"></h4></div>
           <div class="col-md-2">
             <h4><br/>
-            <button type="button" style="width:100px;" class="btn btn-danger btn-lg" v-on:click="want">Want</button>
+            <button type="button" style="width:100px; height: 40px;" class="btn btn-danger btn-lg" v-on:click="want">Want</button>
             </h4>
           </div>
         </div>
@@ -40,8 +40,9 @@ export default {
 };
 
 .bottom_control {
-  margin: 30px;
+  margin: 10px;
   text-align: right;
+  vertical-align: center;
 }
 
 </style>

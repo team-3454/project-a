@@ -20,12 +20,6 @@
             </tbody>
           </table>
     </div>
-    
-  <div class='bottom_control'>
-    <button type="button" class="btn btn-primary btn-lg" v-show="results.length > 0" v-on:click="nextPage">Next Page</button>
-    <!--<button type="button" class="btn btn-warning btn-lg" v-on:click="want">Want</button> -->
-  </div>
-
   </div>
 </template>
 
@@ -65,7 +59,10 @@ export default {
 .search-result-table
 {
   margin: 0 auto;
-  text-align: center;
+  text-align: left;
+  padding-left: 50px;
+  padding-right: 50px;
+
 }
 
 .bottom_control

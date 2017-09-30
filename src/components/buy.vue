@@ -5,7 +5,7 @@
     background-size: 100%; 
     background-position:center
     height: 300px; padding: 50px;">
-      <h2>Buy</h2>
+      <h2 style="color: #FFFFFF">Buy</h2>
       <ticket-selector></ticket-selector>
     </div>
     <div style="padding: 50px;">
