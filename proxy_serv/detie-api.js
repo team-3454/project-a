@@ -102,8 +102,8 @@ const sendPostRequest = (baseUrl, api_key, secret, params) => {
   })
 };
 
-const api_key = "1fdeae6e7fd44c9e991d21066a828f0c"
-const secret = "4dae4d6a-4874-4d60-8eac-67701520671d"
+const api_key = "be9ef6f506d84d80bc8cd555e4555e3d"
+const secret = "01bd37a7-fcf7-40cf-8a34-1b3c353ab375"
 
 async function pollingResults (token) {
   while (true) {
