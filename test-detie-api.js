@@ -2,9 +2,9 @@
 const {searchSolutions, makeBooking, makeConfirm} = require('./proxy_serv/detie-api.js');
 
 searchSolutions({
-      "from": "ST_E020P6M4",
-      "to": "ST_EMYR64OX",
-      "date": "2017-11-08",
+      "from": "ST_D8NNN9ZK",
+      "to": "ST_EZVVG1X5",
+      "date": "2017-12-08",
       "time": "11:00",
       "adult": 1,
       "child": 0
@@ -57,6 +57,9 @@ searchSolutions({
                 cvv: "123"
             }
   });
+})
+.then(res => {
+  console.log(res);
 })
 .catch(e => {
   console.error(e);

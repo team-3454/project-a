@@ -176,6 +176,7 @@ async function makeBooking(params) {
 async function makeConfirm(confirmID, params) {
   /* params:
     {
+      online_order_id: confirmID
       credit_card: {
               number: "37887690145",
                 exp_month: 11,
@@ -184,8 +185,14 @@ async function makeConfirm(confirmID, params) {
             }
     }
   */
-  const res = await sendPostRequest(`https://alpha.api.detie.cn/api/v2/${confirmID}/online_confirmations`, api_key, secret, params);
-  return await pollingResults(JSON.parse(res).async);
+  params.online_order_id = confirmID;
+
+  const url = `https://alpha.api.detie.cn/api/v2/online_orders/${confirmID}/online_confirmations`;
+  console.log(url);
+  const res = await sendPostRequest(url, api_key, secret, params);
+  const async_token = JSON.parse(res).async;
+  console.log(`confirm async token: ${async_token}`);
+  return await pollingResults(async_token);
 }
 
 module.exports = {
