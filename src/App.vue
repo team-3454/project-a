@@ -1,13 +1,9 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#buy">Buy</a></li>
-          <li><a href="#sell">Sell</a></li>
-        </ul>
-      </div>
-    </nav>
+    <ul class="nav nav-tabs">
+      <li><a href="#buy">Buy</a></li>
+      <li><a href="#sell">Sell</a></li>
+    </ul>
     <router-view></router-view>
   </div> 
 </template>
@@ -20,11 +16,11 @@ export default {
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Droid Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 10px;
 }
 
 </style>
