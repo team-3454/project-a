@@ -14,8 +14,8 @@
           <div class="col-md-6"><h4>Bought price: {{info.BoughtPrice}}</h4></div>
         </div>
         <div class="row">
-          <div class="col-md-5" v-on:click = "deal(info)"><h4>Bid price: {{info.Bid}}</h4></div>
-          <div class="col-md-5" v-on:click = "fillPrice(info)"><h4>Ask price: {{info.Ask}}</h4></div>
+          <div class="col-md-5" style="color: green;" v-on:click = "deal(info)"><h4>Bid price: {{info.Bid}}</h4></div>
+          <div class="col-md-5" style="color: red;" v-on:click = "fillPrice(info)"><h4>Ask price: {{info.Ask}}</h4></div>
         </div>
         <div class="row">
           <div class="col-md-9"><input type="text" :disabled="info.Bidded" class="form-control" v-model="info.CurrentSelectPrice"></div>
