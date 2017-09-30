@@ -7,19 +7,20 @@
         <div class="col-md-12"><h4>Bought price: {{info.BoughtPrice}}</h4></div>
       </div>
       <div class="row">
-          <div class="col-md-3"><h4>Sell price:</h4></div>
-          <div class="col-md-5"><input type="text" class="form-control" :placeholder="info.HighestPrice"></div>
-          <div class="col-md-4"><input type="button" class="btn btn-primary" value="Submit"></div>
+        <div class="col-md-5" v-on:click = "deal(info)"><h4>Bid price: {{info.Bid}}</h4></div>
+        <div class="col-md-5" v-on:click = "fillPrice(info)"><h4>Ask price: {{info.Ask}}</h4></div>
+      </div>
+      <div class="row">
+        <div class="col-md-9"><input type="text" class="form-control" v-model="info.CurrentSelectPrice"></div>
+        <div class="col-md-3"><input type="button" class="btn btn-primary" value="Submit"></div>
       </div>
     </div>
-    <div class="col-md-6"><bid-ask-table></bid-ask-table></div>    
   </div>
   
   </div>
 </template>
 
 <script>
-import BidAskTable from './BidAskTable'
 import TicketInfo from './TicketInfo'
 
 var myInfos = [
@@ -30,7 +31,9 @@ var myInfos = [
     Departure: 18000000000,
     Arrive: 18000000001,
     BoughtPrice: 500,
-    HighestPrice: 800
+    Bid: 97.8,
+    Ask: 97.9,
+    CurrentSelectPrice: 97.8
   }, {
     RefNumber: 'kkkkkkk',
     From: 'gggggg',
@@ -38,7 +41,9 @@ var myInfos = [
     Departure: 18000000000,
     Arrive: 18000000001,
     BoughtPrice: 500,
-    HighestPrice: 800
+    Bid: 97.8,
+    Ask: 97.9,
+    CurrentSelectPrice: 97.8
   }, {
     RefNumber: 'ffffff',
     From: 'gggggg',
@@ -46,7 +51,9 @@ var myInfos = [
     Departure: 18000000000,
     Arrive: 18000000001,
     BoughtPrice: 500,
-    HighestPrice: 800
+    Bid: 97.8,
+    Ask: 97.9,
+    CurrentSelectPrice: 97.8
   }
 ]
 var loadTicketInfo = function () {
@@ -57,11 +64,34 @@ var loadTicketInfo = function () {
 export default {
   name: 'sell',
   components: {
-    BidAskTable,
     TicketInfo
   },
   created: function () {
     loadTicketInfo() // Here
+  },
+  methods: {
+    deal: function (data) {
+      // TO DO: 跳出成交頁面
+      var text = '確定要進行此交易？'
+      data.CurrentSelectPrice = data.Bid
+      setTimeout(() => {
+        if (confirm(text) === true) {
+          alert('恭喜您以' + data.Bid + '成交!!')
+        }
+        var index = myInfos.findIndex((info) => info === data)
+        if (index > -1) {
+          myInfos.splice(index, 1)
+        }
+      }, 0)
+    },
+    fillPrice: function (data) {
+      data.CurrentSelectPrice = data.Ask
+      setTimeout(() => {
+        if (confirm('是否以價格' + data.Ask + '賣出？') === true) {
+          alert('已成功以' + data.Ask + '掛單!!')
+        }
+      }, 0)
+    }
   },
   data () {
     return {
