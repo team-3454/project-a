@@ -22,7 +22,7 @@ searchSolutions({
       "contact": {
         "name": "Liping",
         "email": "lp@163.com",
-        "phone": "10086",
+        "phone": "886100100",
         "address": "beijing",
         "postcode": "100100"
       },
@@ -33,7 +33,7 @@ searchSolutions({
             "birthdate": "1986-09-01",
             "passport": "A123456",
             "email": "x@a.cn",
-            "phone": "15000367081",
+            "phone": "1500012345#6",
             "gender": "male"
           }
         ],
