@@ -33,10 +33,10 @@ import $ from 'jquery'
 var myInfos = [
   {
     RefNumber: 'YH0943223',
-    From: 'Paris',
-    To: 'Berlin',
-    Departure: 180874374343,
-    Arrive: 18098874343,
+    From: 'Berlin Hbf',
+    To: 'Stuttgart Hbf',
+    Departure: '2017-11-11T15:14:00+01:00',
+    Arrive: '2017-11-11T19:00:00+01:00',
     BoughtPrice: 99.3,
     Bid: 97.8,
     Ask: 98.9,
@@ -44,10 +44,10 @@ var myInfos = [
     Bidded: false
   }, {
     RefNumber: 'TD0928340',
-    From: 'Rome',
-    To: 'Colone',
-    Departure: 180054424230,
-    Arrive: 180065324230,
+    From: 'Berlin Hbf',
+    To: 'München Hbf',
+    Departure: '2017-11-11T15:14:00+01:00',
+    Arrive: '2017-11-11T19:00:00+01:00',
     BoughtPrice: 133.5,
     Bid: 99.8,
     Ask: 123.9,
@@ -55,10 +55,10 @@ var myInfos = [
     Bidded: false
   }, {
     RefNumber: 'RT0873378',
-    From: 'Paris',
-    To: 'Hambur',
-    Departure: 180004324230,
-    Arrive: 180055324230,
+    From: 'Frankfurt(Main)Hbf',
+    To: 'Köln Hbf',
+    Departure: '2017-11-10T15:44:00+01:00',
+    Arrive: '2017-11-10T18:44:00+01:00',
     BoughtPrice: 102.3,
     Bid: 92.7,
     Ask: 98.9,
