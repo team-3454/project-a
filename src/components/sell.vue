@@ -1,10 +1,8 @@
 <template>
   <div class="sell">
-  <div class="container">
+  <div class="container" v-for="info in infos">
     <div class="col-md-6">
-      <div v-for="info in infos">
-        <ticket-info :info="info" ></ticket-info>
-      </div>
+      <ticket-info :info="info" ></ticket-info>
     </div>
     <div class="col-md-6"><bid-ask-table></bid-ask-table></div>
   </div>
@@ -26,7 +24,15 @@ var myInfos = [
     BoughtPrice: 500,
     HighestPrice: 800
   }, {
-    RefNumber: 'yyyyyyyyyyyy',
+    RefNumber: 'kkkkkkk',
+    From: 'gggggg',
+    To: 'hhhhhhhh',
+    Departure: 18000000000,
+    Arrive: 18000000001,
+    BoughtPrice: 500,
+    HighestPrice: 800
+  }, {
+    RefNumber: 'ffffff',
     From: 'gggggg',
     To: 'hhhhhhhh',
     Departure: 18000000000,
