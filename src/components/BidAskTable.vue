@@ -1,6 +1,5 @@
 <template>
   <div class="bid_ask_table">
-    <h1>Bid-Ask Table</h1>
     <div class="bid_ask_table">
       <div class="row">
         <div class="col-sm-6">
