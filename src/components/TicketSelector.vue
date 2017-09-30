@@ -20,7 +20,7 @@
           <div class="col-md-2"><h4 style="color: #0a0a0a">Time<br/><input type='time' style="height: 40px; color: #cacaca" v-model="time"></h4></div>
           <div class="col-md-2"><h4 style="color: #0a0a0a">Price<br/><input type='number' style="height: 40px; color: #cacaca"></h4></div>
           <div class="col-md-2"><h4></h4><br/>
-            <button type="button" style="width:100px; height: 40px;" class="btn btn-danger btn-lg" v-on:click="want">Want</button>
+            <button type="button" style="width:100px; height: 40px;" class="btn btn-danger btn-lg" @click="want">Want</button>
           </div>
         </div>
       </div>
@@ -71,6 +71,11 @@ export default {
     },
     updateTo (val) {
       this.to = val
+    },
+    want () {
+      if (confirm('需要幫您加入徵求清單嗎？')) {
+        alert('已幫您公開徵求此車票！')
+      }
     }
   },
   mounted () {
