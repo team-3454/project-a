@@ -32,43 +32,42 @@ import $ from 'jquery'
 
 var myInfos = [
   {
-    RefNumber: 'xxxxxxxxxx',
+    RefNumber: 'YH0943223',
     From: 'Paris',
     To: 'Berlin',
-    Departure: 18000000000,
-    Arrive: 18000000001,
-    BoughtPrice: 500,
+    Departure: 180874374343,
+    Arrive: 18098874343,
+    BoughtPrice: 99.3,
     Bid: 97.8,
-    Ask: 97.9,
+    Ask: 98.9,
     CurrentSelectPrice: 97.8,
     Bidded: false
   }, {
-    RefNumber: 'kkkkkkk',
-    From: 'gggggg',
-    To: 'hhhhhhhh',
-    Departure: 18000000000,
-    Arrive: 18000000001,
-    BoughtPrice: 500,
-    Bid: 97.8,
-    Ask: 97.9,
-    CurrentSelectPrice: 97.8,
+    RefNumber: 'TD0928340',
+    From: 'Rome',
+    To: 'Colone',
+    Departure: 180054424230,
+    Arrive: 180065324230,
+    BoughtPrice: 133.5,
+    Bid: 99.8,
+    Ask: 123.9,
+    CurrentSelectPrice: 99.8,
     Bidded: false
   }, {
-    RefNumber: 'ffffff',
-    From: 'gggggg',
-    To: 'hhhhhhhh',
-    Departure: 18000000000,
-    Arrive: 18000000001,
-    BoughtPrice: 500,
-    Bid: 97.8,
-    Ask: 97.9,
-    CurrentSelectPrice: 97.8,
+    RefNumber: 'RT0873378',
+    From: 'Paris',
+    To: 'Hambur',
+    Departure: 180004324230,
+    Arrive: 180055324230,
+    BoughtPrice: 102.3,
+    Bid: 92.7,
+    Ask: 98.9,
+    CurrentSelectPrice: 92.7,
     Bidded: false
   }
 ]
 var loadTicketInfo = function () {
-  // infos initial
-  myInfos[0].RefNumber = 'ssss'
+
 }
 
 export default {
