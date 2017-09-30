@@ -1,27 +1,27 @@
 <template>
   <div class="sell">
-  <div class="container" v-for="info in infos">
-    <div class="col-md-6">
-      <ticket-info :info="info" ></ticket-info>
-      <div class="row">
-        <div class="col-md-12"><h4>Bought price: {{info.BoughtPrice}}</h4></div>
-      </div>
-      <div class="row">
-        <div class="col-md-5" v-on:click = "deal(info)"><h4>Bid price: {{info.Bid}}</h4></div>
-        <div class="col-md-5" v-on:click = "fillPrice(info)"><h4>Ask price: {{info.Ask}}</h4></div>
-      </div>
-      <div class="row">
-        <div class="col-md-9"><input type="text" class="form-control" v-model="info.CurrentSelectPrice"></div>
-        <div class="col-md-3"><input type="button" class="btn btn-primary" value="Submit"></div>
+    <div class="container" >
+      <div class="col-md-6" v-for="info in infos">
+        <ticket-info :info="info" ></ticket-info>
+        <div class="row">
+          <div class="col-md-6"><h4>Bought price: {{info.BoughtPrice}}</h4></div>
+        </div>
+        <div class="row">
+          <div class="col-md-5" v-on:click = "deal(info)"><h4>Bid price: {{info.Bid}}</h4></div>
+          <div class="col-md-5" v-on:click = "fillPrice(info)"><h4>Ask price: {{info.Ask}}</h4></div>
+        </div>
+        <div class="row">
+          <div class="col-md-9"><input id="input-price" type="text" class="form-control" v-model="info.CurrentSelectPrice"></div>
+          <div class="col-md-3"><input type="button" class="btn btn-primary" v-on:click="onSummitClick(info)" value="Submit"></div>
+        </div>
       </div>
     </div>
-  </div>
-  
   </div>
 </template>
 
 <script>
 import TicketInfo from './TicketInfo'
+import $ from 'jquery'
 
 var myInfos = [
   {
@@ -91,6 +91,17 @@ export default {
           alert('已成功以' + data.Ask + '掛單!!')
         }
       }, 0)
+    },
+    onSummitClick: function (ticket) {
+      console.log($('#input-price')[0].value)
+      var userPrice = $('#input-price')[0].value
+      if ($('#input-price')[0].value > ticket.Bid) {
+        if (confirm('是否以價格' + userPrice + '賣出？') === true) {
+          alert('已成功以' + userPrice + '掛單!!')
+        }
+      } else {
+        this.deal(ticket)
+      }
     }
   },
   data () {
