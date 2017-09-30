@@ -1,6 +1,5 @@
 <template>
   <div class='search-result'>
-    <h1>Search-Result Table</h1>
     <div class='search-result-table'>
           <table class='table table-hover'>
             <thead>
@@ -23,8 +22,8 @@
     </div>
     
   <div class='bottom_control'>
-    <button type="button" class="btn btn-primary btn-lg" v-show="results.length > 5" v-on:click="nextPage">Next Page</button>
-    <button type="button" class="btn btn-warning btn-lg" v-on:click="want">Want</button> 
+    <button type="button" class="btn btn-primary btn-lg" v-show="results.length > 0" v-on:click="nextPage">Next Page</button>
+    <!--<button type="button" class="btn btn-warning btn-lg" v-on:click="want">Want</button> -->
   </div>
 
   </div>
