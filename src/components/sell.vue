@@ -1,10 +1,14 @@
 <template>
   <div class="sell">
   <div class="container">
-    <div class="col-md-6"><ticket-info :info=info></ticket-info></div>
+    <div class="col-md-6">
+      <div v-for="info in infos">
+        <ticket-info :info="info" ></ticket-info>
+      </div>
+    </div>
     <div class="col-md-6"><bid-ask-table></bid-ask-table></div>
   </div>
-
+  
   </div>
 </template>
 
@@ -12,24 +16,43 @@
 import BidAskTable from './BidAskTable'
 import TicketInfo from './TicketInfo'
 
+var myInfos = [
+  {
+    RefNumber: 'xxxxxxxxxx',
+    From: 'Paris',
+    To: 'Berlin',
+    Departure: 18000000000,
+    Arrive: 18000000001,
+    BoughtPrice: 500,
+    HighestPrice: 800
+  }, {
+    RefNumber: 'yyyyyyyyyyyy',
+    From: 'gggggg',
+    To: 'hhhhhhhh',
+    Departure: 18000000000,
+    Arrive: 18000000001,
+    BoughtPrice: 500,
+    HighestPrice: 800
+  }
+]
+var loadTicketInfo = function () {
+  // infos initial
+  myInfos[0].RefNumber = 'ssss'
+}
+
 export default {
   name: 'sell',
   components: {
     BidAskTable,
     TicketInfo
   },
+  created: function () {
+    loadTicketInfo() // Here
+  },
   data () {
     return {
       msg: 'selllllll',
-      info: {
-        RefNumber: 'xxxxxxxxxx',
-        From: 'Paris',
-        To: 'Berlin',
-        Departure: 18000000000,
-        Arrive: 18000000001,
-        BoughtPrice: 500,
-        HighestPrice: 800
-      }
+      infos: myInfos
     }
   }
 }
