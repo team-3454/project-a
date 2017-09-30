@@ -52,7 +52,9 @@ export default {
   },
   mounted () {
     ticket.get().then(res => {
-      this.results = res.body
+      this.results = res.body.sort((a, b) => {
+        return a.from.name > b.from.name
+      })
     })
   }
 }
